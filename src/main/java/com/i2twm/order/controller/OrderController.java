@@ -1,7 +1,6 @@
 package com.i2twm.order.controller;
 
 import com.i2twm.order.converter.OrderForm2OrderDTO;
-import com.i2twm.order.dataobject.OrderDetail;
 import com.i2twm.order.dto.OrderDTO;
 import com.i2twm.order.enums.ResultEnum;
 import com.i2twm.order.exception.OrderException;
@@ -12,21 +11,19 @@ import com.i2twm.order.vo.ResultVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.util.CollectionUtils;
-import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @RestController
 @RequestMapping("/order")
 @Slf4j
+@RefreshScope
 public class OrderController {
 
     @Autowired
