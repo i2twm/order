@@ -11,6 +11,7 @@ import com.i2twm.order.utils.ResultVOUtil;
 import com.i2twm.order.vo.ResultVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.util.CollectionUtils;
@@ -47,5 +48,12 @@ public class OrderController {
             map.put("orderId",result.getOrderId());
             return ResultVOUtil.success(map);
 
+    }
+    @Value("${env}")
+    private String env;
+
+    @GetMapping("/print")
+    public String print(){
+        return env;
     }
 }
